@@ -10,7 +10,13 @@ export class VacationsService {
 
   // Skapar nytt resmål
   async create(createVacationDto: CreateVacationDto) {
-    return this.prismaService.vacation.create({ data: createVacationDto });
+    const newVacation = await this.prismaService.vacation.create({
+      data: createVacationDto,
+    });
+    return {
+      message: "Nytt resmål skapat!",
+      vacation: newVacation
+    };
   }
 
   // Hämtar alla tillagda resmål
@@ -21,6 +27,7 @@ export class VacationsService {
   // Hittar ett specifikt resmål genom id
   async findOne(id: number) {
     const vacation = await this.prismaService.vacation.findUnique({ where: { id } });
+    // Om resmålet inte kunde hittas -> felmeddelande, denna slänger även en 404-statuskod
     if (!vacation) {
       throw new NotFoundException(`Resmålet med id: '${id}' kunde inte hittas...`);
     }
@@ -29,7 +36,7 @@ export class VacationsService {
 
   // Uppdaterar ett befintligt resmål genom id
   async update(id: number, updateVacationDto: UpdateVacationDto) {
-    await this.findOne(id);
+    await this.findOne(id); // Provar först att hitta den specifika posten
     const updatedVacation = await this.prismaService.vacation.update({
       where: { id },
       data: updateVacationDto,
@@ -42,7 +49,7 @@ export class VacationsService {
   }
   // Tar bort ett befintligt resmål genom id
   async remove(id: number) {
-    await this.findOne(id);
+    await this.findOne(id); // Provar först att hitta den specifika posten
     const deletedVacation = await this.prismaService.vacation.delete({ where: { id } });
     // Lyckat-meddelande som svar tillbaka
     return {
