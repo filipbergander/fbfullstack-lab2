@@ -7,29 +7,38 @@ import { UpdateVacationDto } from './dto/update-vacation.dto.js';
 export class VacationsController {
   constructor(private readonly vacationsService: VacationsService) { }
 
+  // Skapar ett nytt resmål
   @Post()
   create(@Body() createVacationDto: CreateVacationDto) {
     return this.vacationsService.create(createVacationDto);
   }
 
+  // Hämtar alla resmål
   @Get()
   findAll() {
     return this.vacationsService.findAll();
   }
 
+  // Hämtar ett specifikt resmål genom id
   @Get(':id')
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.vacationsService.findOne(id);
   }
-
+  // Uppdaterar ett resmål med id
   @Put(':id')
-  @Patch(':id')
-  update(@Param('id', ParseIntPipe) id: number, @Body() updateVacationDto: UpdateVacationDto) {
+  replace(@Param('id', ParseIntPipe) id: number, @Body() updateVacationDto: UpdateVacationDto) {
     return this.vacationsService.update(id, updateVacationDto);
   }
 
+  // Tar bort ett befintligt resmål genom id
   @Delete(':id')
   remove(@Param('id', ParseIntPipe) id: number) {
     return this.vacationsService.remove(id);
   }
+
+  /*@Patch(':id')
+update(@Param('id', ParseIntPipe) id: number, @Body() updateVacationDto: UpdateVacationDto) {
+  return this.vacationsService.update(id, updateVacationDto);
+}*/
+  // Uppdaterar ett befintligt resmål genom id
 }

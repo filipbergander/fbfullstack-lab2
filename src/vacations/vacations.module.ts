@@ -7,6 +7,7 @@ import { PrismaService } from '../prisma/prisma.service.js';
   controllers: [VacationsController],
   providers: [VacationsService, PrismaService],
 })
+// Resmålsmodellen med alla sina egenskaper
 export class VacationsModule {
   id: number;
   title: string;
