@@ -17,7 +17,7 @@ datasource db {
 model Vacation {
   id Int @id @default(autoincrement())
   title String
-  vacationsDays Int @default(3)
+  vacationDays Int @default(3)
   visited Boolean @default(false)
   createdAt DateTime @default(now())
 }

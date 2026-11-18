@@ -5,26 +5,28 @@ import { PrismaService } from '../prisma/prisma.service.js';
 
 @Injectable()
 export class VacationsService {
-constructor (private readonly prismaService: PrismaService) {}
+  constructor(private readonly prismaService: PrismaService) { }
 
   create(createVacationDto: CreateVacationDto) {
-    return 'This action adds a new vacation';
+    return this.prismaService.vacation.create({ data: createVacationDto });
   }
 
   findAll() {
     return this.prismaService.vacation.findMany();
-    //return `This action returns all vacations`;
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} vacation`;
+    return this.prismaService.vacation.findUnique({ where: { id } });
   }
 
   update(id: number, updateVacationDto: UpdateVacationDto) {
-    return `This action updates a #${id} vacation`;
+    return this.prismaService.vacation.update({
+      where: { id },
+      data: updateVacationDto,
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} vacation`;
+    return this.prismaService.vacation.delete({ where: { id } });
   }
 }
