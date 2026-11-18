@@ -6,4 +6,10 @@ import { VacationsController } from './vacations.controller.js';
   controllers: [VacationsController],
   providers: [VacationsService],
 })
-export class VacationsModule {}
+export class VacationsModule {
+  id: number;
+  title: string;
+  vacationDays: number;
+  visited: boolean;
+  createdAt: Date;
+}
