@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { VacationsService } from './vacations.service.js';
 import { VacationsController } from './vacations.controller.js';
+import { PrismaService } from '../prisma/prisma.service.js';
 
 @Module({
   controllers: [VacationsController],
-  providers: [VacationsService],
+  providers: [VacationsService, PrismaService],
 })
 export class VacationsModule {
   id: number;
