@@ -19,10 +19,15 @@ Liveversion av API:et finns tillgänglig på: https://fbfullstack-lab2.onrender.
 **OBS:** Render-hosten och webbtjänsten går ned i viloläge efter 15 minuters inaktivitet, eftersom det är en gratisversion jag använder. Detta innebär att det första anropet kan ta lite tid, ca 30 sek, innan servern vaknar till liv. 
 
 ## Installation och körning via localhost
-- Klona ner repot och installera NPM-paket: ```npm install```  
+- Klona ner repot ```git clone https://github.com/filipbergander/fullstack-lab2.git```  
+ och installera NPM-paket: ```npm install```  
 
 - Skapa en ``.env``-fil i projektets rotkatalog med:
 ```
+host=db.[DITT_PROJEKT].supabase.co
+port=5432
+database=postgres
+user=postgres
 DATABASE_URL="postgresql://postgres.[DITT_PROJEKT]:[DITT_LÖSENORD]@[aws-0-eu-west-1.pooler.supabase.com:6543/postgres?pgbouncer=true](https://aws-0-eu-west-1.pooler.supabase.com:6543/postgres?pgbouncer=true)"
 DIRECT_URL="postgresql://postgres.[DITT_PROJEKT]:[DITT_LÖSENORD]@[aws-0-eu-west-1.pooler.supabase.com:5432/postgres](https://aws-0-eu-west-1.pooler.supabase.com:5432/postgres)"
 ```
