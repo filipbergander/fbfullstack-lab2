@@ -10,7 +10,7 @@ async function bootstrap() {
     transform: true,
   }));
   // För att kunna prova anrop från frontend
-  //app.enableCors();
+  app.enableCors();
   // Körs via port 3000 eller det som angits i .env filen
   await app.listen(process.env.PORT ?? 3000);
 }
