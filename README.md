@@ -16,7 +16,7 @@ All logik och hanteringen av resmål finns under `src/vacations`.
 
 ### Publicerad länk
 Liveversion av API:et finns tillgänglig på: https://fbfullstack-lab2.onrender.com/    
-**OBS:** Render-hosten och webbtjänsten går ned i viloläge efter 15 minuters inaktivitet, eftersom det är en gratisversion jag använder. Detta innebär att det första anropet kan ta lite tid, ca 30 sek, innan servern vaknar till liv. 
+**OBS:** Render-hosten och webbtjänsten går ned i viloläge efter 15 minuters inaktivitet, eftersom det är en gratisversion jag använder. Detta innebär att det första anropet kan ta lite tid, ca 1 min, innan servern vaknar till liv. 
 
 ## Installation och körning via localhost
 - Klona ner repot ```git clone https://github.com/filipbergander/fullstack-lab2.git```  
